@@ -10,6 +10,14 @@ object ShopListRepositorylmpl: ShopListRepository {
 
     private var autoIncrementId = 0
 
+    init{
+        for(i in 0 until 10){
+            val item = ShopItem("$i", i, true)
+            addItem(item)
+        }
+
+    }
+
     override fun addItem(shopItem: ShopItem) {
         if (shopItem.id == ShopItem.UNDEFINED_ID) {
             shopItem.id = autoIncrementId++
