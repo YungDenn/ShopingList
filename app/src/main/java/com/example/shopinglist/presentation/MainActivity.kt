@@ -24,10 +24,9 @@ class MainActivity : AppCompatActivity() {
         viewModel.shopList.observe(this) {
             shopListAdapter.submitList(it)
         }
-
         val buttonAddItem = findViewById<FloatingActionButton>(R.id.button_add_shop_item)
         buttonAddItem.setOnClickListener {
-            val intent = newIntentAddItem(this)
+            val intent = ShopItemActivity.newIntentAddItem(this)
             startActivity(intent)
         }
     }
