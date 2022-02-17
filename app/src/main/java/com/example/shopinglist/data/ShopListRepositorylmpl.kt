@@ -15,11 +15,10 @@ object ShopListRepositorylmpl: ShopListRepository {
     private var autoIncrementId = 0
 
     init {
-        for (i in 0 until 1000) {
+        for (i in 0 until 10) {
             val item = ShopItem("Name $i", i, Random.nextBoolean())
             addItem(item)
         }
-
     }
 
     override fun addItem(shopItem: ShopItem) {
@@ -39,7 +38,6 @@ object ShopListRepositorylmpl: ShopListRepository {
         val oldElement = getShopItem(shopItem.id)
         shopList.remove(oldElement)
         addItem(shopItem)
-
     }
 
     override fun getShopItem(shopItemId: Int): ShopItem {
@@ -55,5 +53,4 @@ object ShopListRepositorylmpl: ShopListRepository {
     private fun updateList(){
         shopListLD.value = shopList.toList()
     }
-
 }
